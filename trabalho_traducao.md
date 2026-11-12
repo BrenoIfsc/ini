@@ -18,3 +18,7 @@ Estudos de nível global mostram que a incorporação de palavras usada no trein
 Entretanto, o estudo de incorporações de palavras é limitado a uma análise em nível global e ainda não foi exentendido ao contexto total das fontes de frase em linguagem natural e as resultantes associações de gênero na tradução automática.
 
 ## Descrição do Projeto
+
+Nesse projeto de pesquisa, aplicamos uma abordagem inovadora para analisar características linguisticas e morfoligcas alinhadas, com um foco no gênero na fonte e identificar textos e aplicar metodologias de aprendizado de máquina.
+Inglês foi escolinhido como idioma fonte, onde substantivos de papel do sujeito geralmente não são marcados por gênero (p. ex. teacher) e as traduções alvo são analisadas em alemão e espanhol, idiomas com gênero gramático (Savoldi el al., 2021), onde o gênero é marcado claramente (p. ex. Lehrer/Lehrerin).
+O foco é identificar e classificar automaticamente "palavras gatilho" em um contexto fonte que influencie inflexões gramaticais de gênero na tradução alvo (ou seja, sempre que ama AT traduzir uma pessoa como homem ou mulher, ou em vez disso prefira neutralizar ou refrasear a palavra).
