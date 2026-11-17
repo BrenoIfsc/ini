@@ -26,3 +26,12 @@ O projeto consiste dos seguintes entregáveis principais que diferem do estudo e
 
 ### Coleta de dados
 
+O primeiro passo é a coleta de de uma lista de palavras candidatas (papeis, nomes, p. ex. friend) incluindo suas inflexões de gênero, amostrada de suas incorporações em estudos anteriores.
+Essas palavras são usadas para filtrar dados de inglês mono-lingual de diferentes domínios, lembrando levemente a metodologia usada por Ondoño-Soler e Forcada (2022).
+Seguido da filtragem automática, as frases em inglês são filtradas manualmente em um nível mono-lingual para selecionar casos de ambiguidade de gênero da palavra candidata isolada. 
+Nosso objetivo é de 2.000 a 5.000 frases para o modelo refinado.
+Seguindo, os dados filtrados serão traduzidos automaticamente para o alemão e espanhol usando ferramentas de AT disponíveis ao público.
+Nos documentamos e comparamos para qual gênero o sistema de AT traduz cada palavra candidata, primeiro em um nível de palavra (p. ex. o termo individual friend) e depois em um contexto de frase (p. ex. After a friend suggested she try it, Ann said, "Sure!").
+Os dois registros de texto bilíngue (IN-AL, IN-ES) serão alinhados e enriquecidos em nível de palavra por informações morfosintaticas.
+
+
