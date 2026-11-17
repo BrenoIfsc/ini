@@ -34,4 +34,8 @@ Seguindo, os dados filtrados serão traduzidos automaticamente para o alemão e 
 Nos documentamos e comparamos para qual gênero o sistema de AT traduz cada palavra candidata, primeiro em um nível de palavra (p. ex. o termo individual friend) e depois em um contexto de frase (p. ex. After a friend suggested she try it, Ann said, "Sure!").
 Os dois registros de texto bilíngue (IN-AL, IN-ES) serão alinhados e enriquecidos em nível de palavra por informações morfosintaticas.
 
+### Marcação e Análise de Dados
+
+No próxima etapa, os dados ambíguos em inglês serão marcados manualmente para analisar como o contexto influencia as associações de gênero.
+A partir dessas marcações, podemos comparar para até qual extensão as associações de gênero humana sobrepõem com as escolhas gramaticais de gênero na língua alvo feitas pelo sistema TA.
 
