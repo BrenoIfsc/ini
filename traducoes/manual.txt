@@ -23,7 +23,7 @@ Estudos de nível global mostram que a incorporação de palavras usada no trein
 onde incorporação de palavras de diferentes classes gramaticais
 se acumulam baseado no seu gênero em diferentes domínios (p. ex., em esportes, cozinha, gigantes da tecnologia, profanidades sexuais) (Caliskan et al., 2022).
 Entretanto, o estudo de incorporações de palavras é limitado a uma análise em nível global
-e ainda abrange o <!-- não foi estendido ao --> contexto total das fontes de frase em linguagem natural
+e ainda abrange o contexto total das fontes de frase em linguagem natural
 e as resultantes associações de gênero na tradução automática.
 3 Descrição do Projeto
 Nesse projeto de pesquisa,
