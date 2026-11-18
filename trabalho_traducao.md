@@ -8,7 +8,7 @@ Os principais resultados da pesquisa serão (1) uma amostra de dados anotados ma
 
 ## Créditos
 
-Esse projeto é uma pesquisa estratégica de PhD básica totalmente custeada pela Fundação de Pesquisa - Flanders (FWO) dura o período de quatro anos de 11.01.2023 até 31.10.2027, e hospedada dentro da Equipe de Tecnologia de Linguagem e Tradução (LT3) na Universidade de Ghent.
+Esse projeto é uma pesquisa estratégica de doutorado básica totalmente custeada pela Fundação de Pesquisa - Flanders (FWO) dura o período de quatro anos de 11.01.2023 até 31.10.2027, e hospedada dentro da Equipe de Tecnologia de Linguagem e Tradução (LT3) na Universidade de Ghent.
 
 ## Introdução
 
@@ -22,7 +22,7 @@ Entretanto, o estudo de incorporações de palavras é limitado a uma análise e
 Nesse projeto de pesquisa, aplicamos uma abordagem inovadora para analisar características linguísticas e morfológicas alinhadas, com um foco no gênero na fonte e identificar textos e aplicar metodologias de aprendizado de máquina.
 Inglês foi escolhido como idioma fonte, onde substantivos de papel do sujeito geralmente não são marcados por gênero (p. ex. teacher) e as traduções alvo são analisadas em alemão e espanhol, idiomas com gênero gramático (Savoldi el al., 2021), onde o gênero é marcado claramente (p. ex. Lehrer/Lehrerin).
 O foco é identificar e classificar automaticamente "palavras gatilho" em um contexto fonte que influencie inflexões gramaticais de gênero na tradução alvo (ou seja, sempre que ama AT traduzir uma pessoa como homem ou mulher, ou em vez disso prefira neutralizar ou refrasear a palavra).
-O projeto consiste dos seguintes entregáveis principais que diferem do estudo estudo anterior: (1) um conjunto de dados feitos manualmente de associações de gêneros no contexto da frase, (2) uma taxonomia baseada nesses dados, (3) uma análise comparativa das associações de gênero humanas vs. as inflexões de gênero da AT, e (4) um grande modelo de linguagem (LLM) refinado que destaque palavras de gatilho para gênero no texto fonte.
+O projeto consiste dos seguintes entregáveis principais que diferem do estudo estudo anterior: (1) um conjunto de dados anotados manualmente de associações de gêneros no contexto da frase, (2) uma taxonomia baseada nesses dados, (3) uma análise comparativa das associações de gênero humanas vs. as inflexões de gênero da AT, e (4) um grande modelo de linguagem (LLM) refinado que destaque palavras de gatilho para gênero no texto fonte.
 
 ### Coleta de dados
 
@@ -34,8 +34,26 @@ Seguindo, os dados filtrados serão traduzidos automaticamente para o alemão e 
 Nos documentamos e comparamos para qual gênero o sistema de AT traduz cada palavra candidata, primeiro em um nível de palavra (p. ex. o termo individual friend) e depois em um contexto de frase (p. ex. After a friend suggested she try it, Ann said, "Sure!").
 Os dois registros de texto bilíngue (IN-AL, IN-ES) serão alinhados e enriquecidos em nível de palavra por informações morfosintaticas.
 
-### Marcação e Análise de Dados
+### Anotação e Análise de Dados
 
-No próxima etapa, os dados ambíguos em inglês serão marcados manualmente para analisar como o contexto influencia as associações de gênero.
-A partir dessas marcações, podemos comparar para até qual extensão as associações de gênero humana sobrepõem com as escolhas gramaticais de gênero na língua alvo feitas pelo sistema TA.
+No próxima etapa, os dados ambíguos em inglês serão anotados manualmente para analisar como o contexto influencia as associações de gênero.
+A partir dessas anotações, podemos comparar para até qual extensão as associações de gênero humana sobrepõem com as escolhas gramaticais de gênero na língua alvo feitas pelo sistema TA.
+Para cada frase, os anotadores serão pedidos para anotar qual contexto influência suas assossiações de gênero.
+Serão pedidos especificamente para anotar qualquer palavra ou frase de gatilho (p. ex., uma referência, local ou qualquer classe gramatical) que pessoalmente considerem influencias as inflexões de gênero de um palavra candidata naquela frase.
+As anotações serão verificadas e classificada, e a partir disso, será criada uma taxonomia.
+Um estudo de caso com 22 anotadores de diferentes gêneros para avaliar as diretrizes de anotação, concordância entre os anotadores e influência de gênero (Hackenbuchner et al., sob revisão).
+Próximo, iremos analisar as características morfossintáticas dos dados usando ferramentas automatizadas. A combinação de toda a informação morfossintática revelará padrões entre palavras de gatilho e a palavra candidata em questão.
+Baseada nessa análise, queremos excluir palavras de gatilho "irrelevantes", permitindo focar nas palavras ou frases "relevantes" que possuem a maior influência no gênero da candidata.
 
+### Refinamento e Avaliação do Modelo
+
+Em nossa etapa final aplicamos aprendizado de máquina (AM) por meio do refinamento de um LLM baseado em nossas anotações e dados verificados e nas informações extraídas pela análise morfossintática.
+A partir da procura por padrões não estudados que levam ao viés de gênero na TA, com esse modelo refinado buscamos automatizar a detecção de palavras ou frases que remetam gênero no texto fonte e destacá-las.
+
+## Projetos Alinhados
+
+Junto com esse projeto de pesquisa, o bolsista de doutorado, primeiro autor deste artigo, é um co-fundador e membro da DeBiasByUs e um co-organizador das duas Oficinas Internacionais de Tecnologias de Tradução Inclusivas de Gênero.
+
+## Conclusão
+
+Nosso ponto de referência pode fazer com que usuários de AT estejam cientes das inflexões de gênero do texto fonte que estão traduzindo automáticamente, ajuda tecnologicamente o tradutor na pós edição de resultados de AT, direcione desenvolvedores de sistema de AT sobre o problema persistente do viés de gênero, e ajude criadores de conteúdo a identificar potenciais gatilhos no texto que possam contribuir com a tradução enviesada de gênero.
