@@ -84,8 +84,7 @@ permitindo-nos concentrar nas palavras ou expressões “relevantes”
 que exercem a maior influência sobre o gênero da palavra candidata.
 3.3 Ajuste fino e avaliação do modelo
 Na etapa final, aplicaremos o aprendizado de máquina (AM) por meio do ajuste fino de um LLM,
-com base em nossos dados
-anotados
+com base em nossos dados anotados
 e verificados,
 bem como nas informações extraídas da análise morfossintática.
 Ao investigar padrões ainda não estudados que levam ao viés de gênero na TA,
