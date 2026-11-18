@@ -1,0 +1,104 @@
+Detecção automática de (potenciais) fatores no texto fonte contribuindo para o viés de gênero na tradução automática
+Resumo
+Esse projeto de pesquisa busca desenvolver uma metodologia abrangente para ajudar sistemas de tradução automática (TA) terem mais inclusão de gênero para a sociedade.
+O objeto é a criação de um sistema de detecção,
+um modelo de aprendizado de máquina (AM) treinado a partir de anotações manuais,
+que consegue analisar o dado fonte e destacar palavras e frases que influenciam a inclinação por vieses de gênero na tradução esperada.
+Os principais resultados da pesquisa serão
+(1) uma amostra de dados anotados manualmente,
+(2) uma taxonomia, e
+(3) um modelo refinado.
+1 Créditos
+Esse projeto é uma pesquisa estratégica de doutorado básica totalmente custeada pela Fundação de Pesquisa - Flanders (FWO)
+dura o período de quatro anos de 01.11.2023 até 31.10.2027,
+e hospedada dentro da Equipe de Tecnologia de Linguagem e Tradução (LT3) na Universidade de Ghent.
+2 Introdução
+Com o crescimento do uso e interesse no desenvolvimento da tradução automática (TA)
+e a crescente demanda por mais inclusão de gênero na sociedade,
+pesquisa no viés de gênero na TA está aumentando (Salvodi et al., 2021).
+Um sistema de AT é considerado enviesado de gênero
+se ele “descrimina sistematicamente e injustamente certos indivíduos ou grupos em favor de outros” (Salvodi et al., 2021, p. 846),
+perpetuando “estereótipos incorretos e potencialmente discriminatórios” na sociedade (Vanmassenhove, 2024, p. 3).
+Estudos de nível global mostram que a incorporação de palavras usada no treinamento de TA são altamente influenciadas por gênero,
+onde incorporação de palavras de diferentes classes gramaticais
+se acumulam baseado no seu gênero em diferentes domínios (p. ex., em esportes, cozinha, gigantes da tecnologia, profanidades sexuais) (Caliskan et al., 2022).
+Entretanto, o estudo de incorporações de palavras é limitado a uma análise em nível global
+e ainda abrange o <!-- não foi estendido ao --> contexto total das fontes de frase em linguagem natural
+e as resultantes associações de gênero na tradução automática.
+3 Descrição do Projeto
+Nesse projeto de pesquisa,
+aplicamos uma abordagem inovadora para analisar características linguísticas e morfológicas alinhadas,
+com um foco no gênero na fonte e identificar textos
+e aplicar metodologias de aprendizado de máquina.
+Inglês foi escolhido como idioma fonte,
+onde substantivos de papel do sujeito geralmente não são marcados por gênero (p. ex. teacher)
+e as traduções alvo são analisadas em alemão e espanhol,
+idiomas com gênero gramático (Savoldi el al., 2021),
+onde o gênero é marcado claramente (p. ex. Lehrer/Lehrerin).
+O foco é identificar e classificar automaticamente “palavras gatilho” em um contexto fonte
+que influencie inflexões gramaticais de gênero na tradução alvo
+(ou seja, sempre que ama AT traduzir uma pessoa como homem ou mulher, ou em vez disso prefira neutralizar ou refrasear a palavra).
+O projeto consiste dos seguintes entregáveis principais que diferem do estudo estudo anterior:
+(1) um conjunto de dados anotados manualmente de associações de gêneros no contexto da frase,
+(2) uma taxonomia baseada nesses dados,
+(3) uma análise comparativa das associações de gênero humanas vs. as inflexões de gênero da AT,
+e (4) um grande modelo de linguagem (LLM) refinado que destaque palavras de gatilho para gênero no texto fonte.
+3.1 Coleta de dados
+O primeiro passo é a coleta de de uma lista de palavras candidatas (papeis, nomes, p. ex. friend)
+incluindo suas inflexões de gênero,
+amostrada de suas incorporações em estudos anteriores.
+Essas palavras são usadas para filtrar dados de inglês mono-lingual de diferentes domínios,
+lembrando levemente a metodologia usada por Ondoño-Soler e Forcada (2022).
+Seguido da filtragem automática,
+as frases em inglês são filtradas manualmente em um nível mono-lingual
+para selecionar casos de ambiguidade de gênero da palavra candidata isolada.
+Nosso objetivo é de 2.000 a 5.000 frases para o modelo refinado.
+Seguindo, os dados filtrados serão traduzidos automaticamente para o alemão e espanhol
+usando ferramentas de AT disponíveis ao público.
+Nos documentamos e comparamos para qual gênero o sistema de AT traduz cada palavra candidata,
+primeiro em um nível de palavra (p. ex. o termo individual friend)
+e depois em um contexto de frase (p. ex. After a friend suggested she try it, Ann said, “Sure!”).
+Os dois registros de texto bilíngue (IN-AL, IN-ES) serão alinhados e enriquecidos em nível de palavra
+por informações morfosintaticas.
+3.2 Anotação e Análise de Dados
+No próxima etapa,
+os dados ambíguos em inglês serão anotados manualmente
+para analisar como o contexto influencia as associações de gênero.
+A partir dessas anotações,
+podemos comparar para até qual extensão as associações de gênero humana sobrepõem com as escolhas
+gramaticais de gênero na língua alvo feitas pelo sistema TA.
+Para cada frase,
+os anotadores serão pedidos para anotar qual contexto influência suas assossiações de gênero.
+Serão pedidos especificamente para anotar qualquer palavra ou frase de gatilho (p. ex., uma referência, local ou qualquer classe gramatical)
+que pessoalmente considerem influencias as inflexões de gênero de um palavra candidata naquela frase.
+As anotações serão verificadas e classificada, e a partir disso,
+será criada uma taxonomia.
+Um estudo de caso com 22 anotadores de diferentes gêneros
+para avaliar as diretrizes de anotação,
+concordância entre os anotadores e influência de gênero (Hackenbuchner et al., sob revisão).
+Próximo, iremos analisar as características morfossintáticas dos dados usando ferramentas automatizadas.
+A combinação de toda a informação morfossintática revelará padrões entre palavras de gatilho e a palavra candidata em questão.
+Baseada nessa análise,
+queremos excluir palavras de gatilho “irrelevantes”,
+permitindo focar nas palavras ou frases “relevantes”
+que possuem a maior influência no gênero da candidata.
+3.3 Refinamento e Avaliação do Modelo
+Em nossa etapa final aplicamos aprendizado de máquina (AM) por meio do refinamento de um LLM
+baseado em nossas anotações
+e dados verificados
+e nas informações extraídas pela análise morfossintática.
+A partir da procura por padrões não estudados que levam ao viés de gênero na TA,
+com esse modelo refinado buscamos automatizar a detecção de palavras ou frases que remetam gênero
+no texto fonte e destacá-las.
+4 Projetos Alinhados
+Junto com esse projeto de pesquisa,
+o bolsista de doutorado, primeiro autor deste artigo,
+é um co-fundador e membro da DeBiasByUs
+e um co-organizador das duas Oficinas Internacionais de Tecnologias de Tradução Inclusivas de Gênero.
+5 Conclusão
+Nosso ponto de referência pode fazer com que usuários de AT estejam cientes das inflexões de gênero
+do texto fonte que estão traduzindo automáticamente,
+ajuda tecnologicamente o tradutor na pós edição de resultados de AT,
+direcione desenvolvedores de sistema de AT sobre o problema persistente do viés de gênero,
+e ajude criadores de conteúdo a identificar potenciais gatilhos no texto
+que possam contribuir com a tradução enviesada de gênero.
