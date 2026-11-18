@@ -1,0 +1,104 @@
+Detecção automática de (potenciais) fatores no texto-fonte que levam a vieses de gênero na tradução automática
+Resumo
+Este projeto de pesquisa visa desenvolver uma metodologia abrangente para tornar os sistemas de tradução automática (TA) mais inclusivos em termos de gênero para a sociedade.
+O objetivo é a criação de um sistema de detecção —
+um modelo de aprendizado de máquina (AM) treinado com anotações manuais —
+capaz de analisar automaticamente os dados de origem, detectando e destacando palavras e frases que influenciam a manifestação de vieses de gênero nas traduções resultantes.
+Os principais resultados da pesquisa serão:
+(1) um conjunto de dados anotado manualmente,
+(2) uma taxonomia e
+(3) um modelo ajustado (fine-tuned).
+1 Créditos
+Este projeto é uma pesquisa de doutorado básica e estratégica, integralmente financiada pela Fundação de Pesquisa – Flandres (FWO),
+com duração de quatro anos, de 01/11/2023 a 31/10/2027,
+e desenvolvida no âmbito da equipe de Tecnologia da Linguagem e Tradução (LT3) da Universidade de Ghent.
+2 Introdução
+Com o crescente uso e interesse pelos avanços na tradução automática (TA)
+e a demanda cada vez maior por inclusão de gênero na sociedade,
+as pesquisas sobre vieses de gênero na TA têm se intensificado (Savoldi et al., 2021).
+Um sistema de TA é considerado enviesado em relação ao gênero
+se ele “discrimina, de forma sistemática e injusta, certos indivíduos ou grupos em detrimento de outros” (Savoldi et al., 2021, p. 846),
+perpetuando “estereótipos imprecisos e potencialmente discriminatórios” na sociedade (Vanmassenhove, 2024, p. 3).
+Estudos realizados no nível das palavras mostram que os *word embeddings* (representações vetoriais de palavras) utilizados no treinamento de sistemas de TA apresentam uma forte marcação de gênero;
+nesses modelos, *word embeddings* de diferentes classes gramaticais (partes do discurso)
+agrupam-se de maneira acentuada com base no gênero, em diversos domínios (por exemplo: esportes, culinária, grandes empresas de tecnologia, termos de cunho sexual) (Caliskan et al., 2022). No entanto, a pesquisa sobre *word embeddings* (representações vetoriais de palavras) limita-se a uma análise em nível de palavra
+e ainda não foi estendida ao contexto completo das sentenças em linguagem natural,
+nem às associações sistemáticas de gênero que surgem em traduções automáticas.
+3 Descrição do Projeto
+Neste projeto de pesquisa,
+empregamos uma abordagem inovadora para analisar características linguísticas e morfológicas alinhadas,
+com foco no gênero em textos de origem e de destino,
+utilizando metodologias de aprendizado de máquina.
+O inglês foi escolhido como língua de origem,
+na qual nomes de papéis (por exemplo, *teacher* — professor/professora) geralmente não possuem marcação de gênero,
+enquanto as traduções são analisadas em alemão e espanhol —
+línguas que possuem gênero gramatical (Savoldi et al., 2021)
+e nas quais o gênero é claramente marcado (por exemplo, *Lehrer/Lehrerin*).
+O objetivo é identificar e classificar automaticamente "palavras-gatilho" (*trigger words*) em um contexto de origem
+que influenciam a flexão de gênero gramatical na tradução de destino
+(ou seja, se um sistema de tradução automática traduz uma pessoa como sendo do gênero feminino ou masculino,
+ou se opta por neutralizar ou reformular o termo).
+O projeto compreende as seguintes entregas principais, que o diferenciam de pesquisas anteriores:
+(1) um conjunto de dados anotado manualmente com associações de gênero feitas por humanos em contextos frasais,
+(2) uma taxonomia baseada nessas anotações,
+(3) uma análise comparativa entre as associações de gênero feitas por humanos e as flexões de gênero geradas por tradução automática,
+e (4) um modelo de linguagem de grande escala (*Large Language Model* – LLM) ajustado (*fine-tuned*) para destacar palavras-gatilho relacionadas ao gênero em um texto de origem.
+3.1 Coleta de dados
+A primeira etapa consiste na coleta de uma lista de palavras candidatas (nomes de papéis, por exemplo, *friend* — amigo/amiga),
+incluindo sua flexão de gênero,
+conforme extraído de suas representações vetoriais (*word embeddings*) em estudos anteriores.
+Essas palavras são utilizadas para filtrar dados monolíngues em inglês provenientes de diferentes domínios,
+seguindo uma metodologia semelhante à adotada por Ondoño-Soler e Forcada (2022).
+Após a filtragem automática,
+as sentenças em inglês passam por uma filtragem manual,
+com o objetivo de selecionar casos em que o gênero é ambíguo em relação à palavra candidata no singular. Nosso objetivo é obter de 2.000 a 5.000 frases para o ajuste fino (*fine-tuning*) do modelo.
+Em seguida, os dados filtrados serão traduzidos automaticamente para o alemão e o espanhol
+por meio de ferramentas de tradução automática (MT) disponíveis publicamente.
+Documentamos e comparamos o gênero gramatical atribuído pelos sistemas de tradução automática a cada palavra analisada,
+primeiro de forma isolada (por exemplo, o termo *friend*)
+e, depois, dentro do contexto de uma frase (por exemplo: *After a friend suggested she try it, Ann said, “Sure!”*).
+Os dois corpora bilíngues (EN-DE, EN-ES) serão alinhados e enriquecidos, no nível das palavras,
+com informações morfossintáticas.
+3.2 Anotação e Análise de Dados
+Na etapa seguinte,
+os dados em inglês que apresentam ambiguidade serão anotados manualmente
+para analisar como o contexto influencia as associações de gênero.
+Com base nessas anotações,
+podemos comparar em que medida as associações de gênero feitas por humanos coincidem com a
+escolha de gênero gramatical realizada por um sistema de tradução automática no idioma de destino.
+Para cada frase,
+os anotadores deverão indicar qual contexto influenciou sua associação de gênero.
+Especificamente, solicita-se que identifiquem palavras ou expressões que sirvam como gatilhos
+(por exemplo, uma referência, uma localização ou qualquer categoria gramatical/classe de palavras)
+que, na visão deles, influenciem a flexão de gênero de uma determinada palavra naquela frase.
+As anotações serão verificadas e classificadas;
+a partir disso, será criada uma taxonomia.
+Um estudo de caso com 22 anotadores de diferentes gêneros, estudo que já foi realizado
+para avaliar as diretrizes de anotação,
+a concordância entre anotadores e a influência do gênero (Hackenbuchner et al., em processo de revisão).
+Em seguida, analisaremos as características morfossintáticas dos dados utilizando ferramentas automatizadas.
+A combinação de todas as informações morfossintáticas revelará padrões entre as palavras-gatilho e a palavra candidata em questão.
+Com base nessa análise,
+pretendemos excluir palavras-gatilho “irrelevantes”,
+permitindo-nos focar em palavras ou expressões “relevantes”
+que exercem maior influência sobre o gênero da palavra candidata.
+3.3 Ajuste Fino (Fine-Tuning) e Avaliação do Modelo
+Na etapa final, aplicamos aprendizado de máquina (ML) por meio do ajuste fino (fine-tuning) de um LLM (modelo de linguagem de grande escala),
+utilizando nossos dados anotados
+e verificados,
+bem como as informações extraídas da análise morfossintática.
+Ao buscar padrões ainda não estudados que levam ao viés de gênero na tradução automática (TA),
+objetivamos, com este modelo ajustado, detectar automaticamente palavras ou expressões que funcionam como gatilhos de gênero
+em um texto-fonte, destacando-as.
+4 Projetos Relacionados
+Em consonância com este projeto de pesquisa,
+o pesquisador de doutorado, primeiro autor deste artigo,
+é cofundador e membro do DeBiasByUs1
+e coorganizador dos dois Workshops Internacionais sobre Tecnologias de Tradução Inclusivas em termos de Gênero.
+5 Conclusão
+Nosso *benchmark* (referencial de avaliação) pode conscientizar os usuários de sistemas de tradução automática (TA) sobre as flexões de gênero
+presentes nos textos-fonte traduzidos por máquinas;
+oferecer suporte tecnológico a tradutores na pós-edição de resultados de TA;
+orientar desenvolvedores de sistemas de TA quanto a problemas persistentes de viés de gênero;
+e auxiliar criadores de conteúdo a identificar, nos textos, possíveis gatilhos
+que possam levar a traduções com viés de gênero.
